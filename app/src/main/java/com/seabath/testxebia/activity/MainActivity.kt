@@ -21,9 +21,9 @@ import retrofit.client.Response
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
+    companion object Static{
         private val URL_SERVER: String = "http://henri-potier.xebia.fr"
-        private val EXTRA_LIST_BOOK: String = "EXTRA_LIST_BOOK"
+        val EXTRA_LIST_BOOK: String = "EXTRA_LIST_BOOK"
     }
 
     private var mListBooks: ListView? = null
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mListBooks = findViewById(R.id.book_list) as ListView?
+        mListBooks = findViewById(R.id.lv_book_list) as ListView?
 
         mTvNbObject = findViewById(R.id.tv_nb_object) as TextView?
         mTvNbObject?.text = getString(R.string.zero);
