@@ -4,4 +4,7 @@
     <string name="progress_dialog_title">Fetching Data</string>
     <string name="progress_dialog_text">Please wait...</string>
     <string name="voir_panier">Voir Panier</string>
+    <string name="nb_object">Nombre d\'objet:\ </string>
+    <string name="zero">0</string>
+    <string name="ajouter_au_panier">Ajouter au panier</string>
 </resources>

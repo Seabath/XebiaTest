@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.seabath.testxebia.activity.PanierActivity">
 
+    <ListView
+        android:id="@+id/book_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:listitem="@layout/cell_book" />
+
 </android.support.constraint.ConstraintLayout>

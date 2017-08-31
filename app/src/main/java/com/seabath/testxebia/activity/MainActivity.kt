@@ -1,10 +1,14 @@
 package com.seabath.testxebia.activity
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import com.seabath.testxebia.R
 import com.seabath.testxebia.adapter.BookAdapter
 import com.seabath.testxebia.interfaces.BooksAPI
@@ -19,20 +23,32 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private val URL_SERVER: String = "http://henri-potier.xebia.fr"
+        private val EXTRA_LIST_BOOK: String = "EXTRA_LIST_BOOK"
     }
 
     private var mListBooks: ListView? = null
+    private var mTvNbObject: TextView? = null
+    private var mButtonValider: Button? = null
+
     private var mBooks: List<Book>? = null
-    private var mCheckBooks: List<Book>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mCheckBooks = listOf();
         mListBooks = findViewById(R.id.book_list) as ListView?
 
+        mTvNbObject = findViewById(R.id.tv_nb_object) as TextView?
+        mTvNbObject?.text = getString(R.string.zero);
 
+        mButtonValider = findViewById(R.id.btn_validate_main) as Button?
+        mButtonValider?.setOnClickListener(View.OnClickListener {
+            val intent: Intent = Intent(baseContext, PanierActivity::class.java)
+
+            val panier = (mListBooks?.adapter as BookAdapter).mPanier.toTypedArray()
+            intent.putExtra(EXTRA_LIST_BOOK, panier)
+            startActivity(intent)
+        })
 
         getBooks()
     }
