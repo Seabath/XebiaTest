@@ -7,4 +7,6 @@
     <string name="nb_object">Nombre d\'objet:\ </string>
     <string name="zero">0</string>
     <string name="ajouter_au_panier">Ajouter au panier</string>
+    <string name="currency">€</string>
+    <string name="total_price">Prix Total:\ </string>
 </resources>

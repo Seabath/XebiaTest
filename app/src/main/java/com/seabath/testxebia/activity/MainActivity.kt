@@ -22,7 +22,7 @@ import retrofit.client.Response
 class MainActivity : AppCompatActivity() {
 
     companion object Static{
-        private val URL_SERVER: String = "http://henri-potier.xebia.fr"
+        val URL_SERVER: String = "http://henri-potier.xebia.fr"
         val EXTRA_LIST_BOOK: String = "EXTRA_LIST_BOOK"
     }
 

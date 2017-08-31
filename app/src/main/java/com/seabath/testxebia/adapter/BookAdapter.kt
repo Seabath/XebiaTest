@@ -42,6 +42,7 @@ class BookAdapter(var mContext: Context, var mBooks: List<Book>) : BaseAdapter()
         vh.buttonAdd.setOnClickListener(View.OnClickListener {
             mPanier.add(book)
         })
+        vh.price.text = book.price
         return view
     }
 
@@ -50,11 +51,12 @@ class BookAdapter(var mContext: Context, var mBooks: List<Book>) : BaseAdapter()
         val cover: ImageView
         val title: TextView
         val buttonAdd: Button
-
+        val price: TextView
         init {
             this.title = row?.findViewById(R.id.title_book) as TextView
             this.cover = row.findViewById(R.id.cover_book) as ImageView
             this.buttonAdd = row.findViewById(R.id.btn_add) as Button
+            this.price = row.findViewById(R.id.tv_price) as TextView
         }
     }
 }

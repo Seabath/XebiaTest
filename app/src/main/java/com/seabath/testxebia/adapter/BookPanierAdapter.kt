@@ -43,10 +43,12 @@ class BookPanierAdapter(var mContext: Context, var mBooks: List<Book>) : BaseAda
     private class CellBookRowHolder(row: View?) {
         val cover: ImageView
         val title: TextView
+        val price: TextView
 
         init {
             this.title = row?.findViewById(R.id.title_book) as TextView
             this.cover = row.findViewById(R.id.cover_book) as ImageView
+            this.price = row.findViewById(R.id.tv_price) as TextView
         }
     }
 }
