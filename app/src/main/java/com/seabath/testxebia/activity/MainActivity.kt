@@ -23,18 +23,22 @@ class MainActivity : AppCompatActivity() {
 
     private var mListBooks: ListView? = null
     private var mBooks: List<Book>? = null
+    private var mCheckBooks: List<Book>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        mCheckBooks = listOf();
         mListBooks = findViewById(R.id.book_list) as ListView?
+
+
 
         getBooks()
     }
 
     private fun getBooks() {
-        var loading = ProgressDialog.show(this, getString(R.string.progress_dialog_title), getString(R.string.progress_dialog_text), false, false)
+        val loading = ProgressDialog.show(this, getString(R.string.progress_dialog_title), getString(R.string.progress_dialog_text), false, false)
 
         val adapter = RestAdapter.Builder()
                 .setEndpoint(URL_SERVER)

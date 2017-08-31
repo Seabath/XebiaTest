@@ -3,4 +3,5 @@
     <string name="desc_cover">cover of the book</string>
     <string name="progress_dialog_title">Fetching Data</string>
     <string name="progress_dialog_text">Please wait...</string>
+    <string name="voir_panier">Voir Panier</string>
 </resources>
