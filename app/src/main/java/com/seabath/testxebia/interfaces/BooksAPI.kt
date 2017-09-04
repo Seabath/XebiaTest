@@ -1,10 +1,9 @@
 package com.seabath.testxebia.interfaces
 
 import com.seabath.testxebia.model.Book
-import com.seabath.testxebia.model.Offer
-import retrofit.http.GET
+import com.seabath.testxebia.model.OfferList
 import retrofit.Callback
-import retrofit.client.Response
+import retrofit.http.GET
 import retrofit.http.Path
 
 interface BooksAPI {
@@ -12,7 +11,7 @@ interface BooksAPI {
     @GET("/books")
     fun getBooks(response: Callback<List<Book>>)
 
-    @GET("/books/{}/")
-    fun getOffer(response: Callback<List<Offer>>)
+    @GET("/books/{url}/commercialOffers")
+    fun getOffer(@Path("url") url: String, response: Callback<OfferList>)
 
 }

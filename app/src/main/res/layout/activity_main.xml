@@ -16,7 +16,7 @@
         tools:listitem="@layout/cell_book" />
 
     <TextView
-        android:id="@+id/tv_nb_object_text"
+        android:id="@+id/tv_nb_object"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -26,16 +26,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_nb_object"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_nb_object_text"
-        tools:text="bloblo" />
 
     <Button
         android:id="@+id/btn_validate_main"

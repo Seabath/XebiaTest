@@ -6,14 +6,14 @@ import android.os.Parcelable
 class Book() : Parcelable {
     var isbn: String? = null
     var title: String? = null
-    var price: String? = null
+    var price: Int = 0
     var cover: String? = null
     var synopsis: List<String>? = null
 
     constructor(parcel: Parcel) : this() {
         isbn = parcel.readString()
         title = parcel.readString()
-        price = parcel.readString()
+        price = parcel.readInt()
         cover = parcel.readString()
         synopsis = parcel.createStringArrayList()
     }
@@ -21,7 +21,7 @@ class Book() : Parcelable {
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(isbn)
         parcel.writeString(title)
-        parcel.writeString(price)
+        parcel.writeInt(price)
         parcel.writeString(cover)
         parcel.writeStringList(synopsis)
     }

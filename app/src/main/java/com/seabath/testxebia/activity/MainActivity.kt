@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
@@ -76,7 +77,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showList() {
-        val adapter = BookAdapter(this, mBooks!!)
-        mListBooks!!.adapter = adapter
+        val adapter = BookAdapter(this, mBooks!!, true)
+        mListBooks?.adapter = adapter
+        mListBooks?.onItemClickListener = AdapterView.OnItemClickListener {
+            parent, view, position, id ->
+            mTvNbObject?.text = (mListBooks?.adapter as BookAdapter).getPanierSize().toString()
+        }
     }
 }
