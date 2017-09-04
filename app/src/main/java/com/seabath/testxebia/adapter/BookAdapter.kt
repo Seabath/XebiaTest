@@ -44,7 +44,7 @@ class BookAdapter(var mContext: Context, var mBooks: List<Book>, var mHasPanier:
                 mPanier.add(book)
             })
         }
-        vh.price.text = String.format("%d%s", book.price, R.string.currency)
+        vh.price.text = String.format("%d%s", book.price, mContext.getString(R.string.currency))
         return view
     }
 

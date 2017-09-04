@@ -90,6 +90,6 @@ class PanierActivity : AppCompatActivity() {
             }
         }
 
-        mTextViewPrice?.text = String.format(getString(R.string.price_text_view), bestPrice, R.string.currency)
+        mTextViewPrice?.text = String.format(getString(R.string.price_text_view), bestPrice, getString(R.string.currency))
     }
 }
