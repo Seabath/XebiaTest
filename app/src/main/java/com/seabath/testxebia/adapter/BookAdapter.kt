@@ -1,17 +1,24 @@
 package com.seabath.testxebia.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.seabath.testxebia.R
+import com.seabath.testxebia.activity.BookActivity
+import com.seabath.testxebia.activity.MainActivity
 import com.seabath.testxebia.model.Book
 import com.squareup.picasso.Picasso
 
 class BookAdapter(var mContext: Context, var mBooks: List<Book>, var mHasPanier: Boolean) : BaseAdapter() {
 
     var mPanier: MutableList<Book> = mutableListOf()
+
+    companion object Static {
+        val EXTRA_BOOK: String = "EXTRA_BOOK"
+    }
 
     private val mInflator: LayoutInflater = LayoutInflater.from(mContext)
 
@@ -43,10 +50,15 @@ class BookAdapter(var mContext: Context, var mBooks: List<Book>, var mHasPanier:
             })
         }
         vh.price.text = String.format("%d%s", book.price, mContext.getString(R.string.currency))
+
+        view.setOnClickListener(View.OnClickListener {
+            val intent = Intent(mContext, BookActivity::class.java)
+            intent.putExtra(EXTRA_BOOK, book)
+            mContext.startActivity(intent)
+        })
+
         return view
     }
-
-    fun getPanierSize(): Int = mPanier.size
 
 
     private class CellBookRowHolder(row: View?) {
