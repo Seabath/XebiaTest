@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seabath.testxebia">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PanierActivity" />
+        <activity android:name=".activity.BookActivity"></activity>
     </application>
 
 </manifest>

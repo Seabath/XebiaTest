@@ -22,13 +22,12 @@ import retrofit.client.Response
 
 class MainActivity : AppCompatActivity() {
 
-    companion object Static{
+    companion object Static {
         val URL_SERVER: String = "http://henri-potier.xebia.fr"
         val EXTRA_LIST_BOOK: String = "EXTRA_LIST_BOOK"
     }
 
     private var mListBooks: ListView? = null
-    private var mTvNbObject: TextView? = null
     private var mButtonValider: Button? = null
 
     private var mBooks: List<Book>? = null
@@ -39,12 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         mListBooks = findViewById(R.id.lv_book_list) as ListView?
 
-        mTvNbObject = findViewById(R.id.tv_nb_object) as TextView?
-        mTvNbObject?.text = getString(R.string.zero);
-
         mButtonValider = findViewById(R.id.btn_validate_main) as Button?
         mButtonValider?.setOnClickListener(View.OnClickListener {
-            val intent: Intent = Intent(baseContext, PanierActivity::class.java)
+            val intent = Intent(baseContext, PanierActivity::class.java)
 
             val panier = (mListBooks?.adapter as BookAdapter).mPanier.toTypedArray()
             intent.putExtra(EXTRA_LIST_BOOK, panier)
@@ -79,9 +75,5 @@ class MainActivity : AppCompatActivity() {
     private fun showList() {
         val adapter = BookAdapter(this, mBooks!!, true)
         mListBooks?.adapter = adapter
-        mListBooks?.onItemClickListener = AdapterView.OnItemClickListener {
-            parent, view, position, id ->
-            mTvNbObject?.text = (mListBooks?.adapter as BookAdapter).getPanierSize().toString()
-        }
     }
 }

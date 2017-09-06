@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">Test Xebia</string>
     <string name="desc_cover">cover of the book</string>
-    <string name="progress_dialog_title">Fetching Data</string>
-    <string name="progress_dialog_text">Please wait...</string>
+    <string name="progress_dialog_title">Mise à jour des données</string>
+    <string name="progress_dialog_text">Patientez s\'il vous plaît…</string>
     <string name="voir_panier">Voir Panier</string>
-    <string name="nb_object">Nombre d\'objet:\ </string>
-    <string name="zero">0</string>
     <string name="ajouter_au_panier">Ajouter au panier</string>
     <string name="currency" formatted="false">\u20ac</string>
-    <string name="total_price">Prix Total:\ </string>
     <string name="price_text_view" formatted="false">Prix Total: %d%s</string>
+    <string name="added">ajouté au panier</string>
 </resources>

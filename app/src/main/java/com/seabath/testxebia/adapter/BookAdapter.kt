@@ -4,10 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.seabath.testxebia.R
 import com.seabath.testxebia.model.Book
 import com.squareup.picasso.Picasso
@@ -42,6 +39,7 @@ class BookAdapter(var mContext: Context, var mBooks: List<Book>, var mHasPanier:
             vh.buttonAdd.visibility = View.VISIBLE
             vh.buttonAdd.setOnClickListener(View.OnClickListener {
                 mPanier.add(book)
+                Toast.makeText(mContext, book.title + " " + mContext.getText(R.string.added), Toast.LENGTH_SHORT).show()
             })
         }
         vh.price.text = String.format("%d%s", book.price, mContext.getString(R.string.currency))

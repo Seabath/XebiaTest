@@ -71,23 +71,20 @@ class PanierActivity : AppCompatActivity() {
         }
         var bestPrice: Int = totalPrice
         mOffers?.offers?.forEach {
+            var tmpPrice = bestPrice
             when (it.type) {
                 "percentage" -> {
-                    val tmpPrice = totalPrice - totalPrice * it.value!! / 100
-                    if (tmpPrice <= bestPrice)
-                        bestPrice = tmpPrice
+                    tmpPrice = totalPrice - totalPrice * it.value!! / 100
                 }
                 "minus" -> {
-                    val tmpPrice = totalPrice - it.value!!
-                    if (tmpPrice <= bestPrice)
-                        bestPrice = tmpPrice
+                    tmpPrice = totalPrice - it.value!!
                 }
                 "slice" -> {
-                    val tmpPrice = totalPrice - (totalPrice / it.sliceValue!!) * it.value!!
-                    if (tmpPrice <= bestPrice)
-                        bestPrice = tmpPrice
+                    tmpPrice = totalPrice - (totalPrice / it.sliceValue!!) * it.value!!
                 }
             }
+            if (tmpPrice <= bestPrice)
+                bestPrice = tmpPrice
         }
 
         mTextViewPrice?.text = String.format(getString(R.string.price_text_view), bestPrice, getString(R.string.currency))
